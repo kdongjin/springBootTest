@@ -39,12 +39,16 @@ public class HomeController {
 		System.out.println("sysout2" + model);
 		return "home";
 	}
-	
+
 	@RequestMapping(value = "/memberInsert", method = RequestMethod.GET)
 	public String memberInsert() {
 		return "memberInsert";
 	}
 
-	
+	@RequestMapping(value = "/registerFileUpForm", method = RequestMethod.GET)
+	public String registerFileUpForm() {
+		log.info("registerFileUpForm");
+		return "registerFileUpForm";
+	}
 
 }

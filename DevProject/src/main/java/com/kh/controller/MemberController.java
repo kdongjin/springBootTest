@@ -1,5 +1,6 @@
 package com.kh.controller;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.domain.Address;
 import com.kh.domain.Board;
 import com.kh.domain.Member;
 
@@ -32,16 +35,29 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 
 	@PostMapping(value = "/insert")
-	public String insertMemebr(Member member, @DateTimeFormat(pattern = "yyyy/MM/dd") Date dateOfBirth) {
+	public String insertMemebr(Member member, Address address) {
 		log.info("insertMemebr");
 		log.info("member.getUserId() = " + member.getUserId());
 		log.info("member.getPassword() = " + member.getPassword());
 		log.info("member.getCoin() = " + member.getCoin());
 		log.info("Date dateOfBirth = " + member.getDateOfBirth());
-		log.info("Date yyyy년도MM월dd일 = " + dateOfBirth);
-		return "home"; 
+		log.info("member.tostring = " + member);
+		log.info("address.tostring = " + address);
+		return "home";
 	}
 
-	
+	@RequestMapping(value = "/registerFileUp01", method = RequestMethod.POST)
+	public String registerFileUp01(@RequestBody MultipartFile picture) throws Exception {
+		log.info("registerFileUp01");
+		log.info("originalName: " + picture.getOriginalFilename());
+		log.info("size: " + picture.getSize());
+		log.info("contentType: " + picture.getContentType());
+		
+		if(!picture.isEmpty()){
+			String fileName = picture.getOriginalFilename();
+			picture.transferTo(new File("C:/SpringBootProject/upload_files/"+fileName));
+		}
+		return "home";
+	}
 
 }

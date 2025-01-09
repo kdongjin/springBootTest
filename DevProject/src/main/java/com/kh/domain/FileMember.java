@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,9 +18,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Data
-public class Member {
+public class FileMember {
 	private String userId;
 	private String password;
-	private int coin;
-	private Date dateOfBirth;
+	private MultipartFile picture;
 }

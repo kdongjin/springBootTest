@@ -1,8 +1,6 @@
 package com.kh.domain;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,9 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Data
-public class Member {
-	private String userId;
-	private String password;
-	private int coin;
-	private Date dateOfBirth;
+public class Address {
+	private String postCode;
+	private String location;
 }
