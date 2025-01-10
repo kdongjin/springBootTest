@@ -34,15 +34,18 @@ public class HomeController {
 		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formatedDate = df.format(date);
 		model.addAttribute("작업시간", formatedDate);
-
 		logger.info("logger2" + model);
-		System.out.println("sysout2" + model);
 		return "home";
 	}
 
 	@RequestMapping(value = "/memberInsert", method = RequestMethod.GET)
 	public String memberInsert() {
 		return "memberInsert";
+	}
+	
+	@RequestMapping(value = "/ajaxhome6", method = RequestMethod.GET)
+	public String ajaxhome6() {
+		return "ajaxhome6";
 	}
 
 	@RequestMapping(value = "/registerFileUpForm", method = RequestMethod.GET)

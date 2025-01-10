@@ -9,7 +9,7 @@
 <body>
 	<h2>파일 업로드 폼 요청처리</h2>
 	<form action="/member/registerFileUp01" method="post" enctype="multipart/form-data">
-		1. <input type="file" name="picture"> 
+		1. <input type="file" name="picture" multiple><br> 
 		<input type="submit">
 	</form>
 </body>

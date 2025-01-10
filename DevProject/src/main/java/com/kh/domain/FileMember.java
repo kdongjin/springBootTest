@@ -21,5 +21,5 @@ import lombok.ToString;
 public class FileMember {
 	private String userId;
 	private String password;
-	private MultipartFile picture;
+	private List<MultipartFile> picture;
 }
