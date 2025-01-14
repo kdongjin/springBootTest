@@ -9,7 +9,6 @@
 <script>
 	$(document).ready(function() {
 		var formObj = $("#member");
-
 		$("#btnRegister").on("click", function() {
 			formObj.attr("action", "/user/register");
 			formObj.attr("method", "post");
@@ -41,7 +40,8 @@
 	</form:form>
 
 	<div>
-		<button type="button" id="btnRegister">등록</button>
+		<button type="submit" id="btnRegister">등록</button>
 	</div>
 </body>
 </html>
+
