@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zeus.domain.Item;
 import com.zeus.service.ItemService;
 
+import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -56,6 +57,7 @@ public class ItemController {
 	//이미지게시판등록내용 디비저장 및 파일저장 요청 /WEB-INF/views/item/success.jsp 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(Item item, Model model) throws Exception {
+		
 		MultipartFile file = item.getPicture();
 
 		log.info("originalName: " + file.getOriginalFilename());
@@ -109,7 +111,8 @@ public class ItemController {
 	//이미지게시판 제거내용 처리요청(디비및 파일제거요청) /WEB-INF/views/item/remove.jsp 
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(Item item, Model model) throws Exception {
-		this.itemService.remove(item.getItemId());
+		
+		itemService.remove(item.getItemId());
 		model.addAttribute("msg", "삭제가 완료되었습니다.");
 		return "item/success";
 	}
